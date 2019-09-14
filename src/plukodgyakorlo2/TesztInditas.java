@@ -233,6 +233,11 @@ public class TesztInditas extends javax.swing.JFrame {
         });
 
         befejezemButton.setText("Befejezem");
+        befejezemButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                befejezemButtonActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("jó válaszok százalékban:");
 
@@ -438,6 +443,10 @@ public class TesztInditas extends javax.swing.JFrame {
     private void sz90tolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sz90tolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sz90tolActionPerformed
+
+    private void befejezemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_befejezemButtonActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_befejezemButtonActionPerformed
 
     /**
      * @param args the command line arguments

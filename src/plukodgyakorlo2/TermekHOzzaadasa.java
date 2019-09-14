@@ -23,55 +23,42 @@ import javax.swing.JOptionPane;
  */
 public class TermekHOzzaadasa extends javax.swing.JFrame {
 
-    ArrayList<TermekKodParos> termekek;
+    Adatkezelo adatok = new Adatkezelo();
 
     /**
      * Creates new form TermekHOzzaadasa
      */
     public TermekHOzzaadasa() {
         initComponents();
-        termekek = new ArrayList<TermekKodParos>();
-        populateArrayList();
+        adatok.listafeltolto();
+//        termekek = new ArrayList<TermekKodParos>();
+//        populateArrayList();
     }
 
-    public void populateArrayList() {
-        try {
-            FileInputStream file = new FileInputStream("src\\segedlet\\TermekKodparos.dat");
-            ObjectInputStream inputFile = new ObjectInputStream(file);
-
-            boolean endOfFile = false;
-            while (!endOfFile) {
-                try {
-                    termekek.add((TermekKodParos) inputFile.readObject());
-                } catch (EOFException e) {
-                    endOfFile = true;
-                } catch (Exception f) {
-                    JOptionPane.showMessageDialog(null, f.getMessage());
-                }
-            }
-            inputFile.close();
-
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
-    }
-    
-    public void saveTermekekToFile(){
-        try{
-            FileOutputStream file=new FileOutputStream("src\\segedlet\\TermekKodparos.dat");
-            ObjectOutputStream outputFile=new ObjectOutputStream(file);
-            for (int i = 0; i <termekek.size(); i++) {
-                outputFile.writeObject(termekek.get(i));
-            }
-            outputFile.close();
-           // JOptionPane.showMessageDialog(null, "Sikeres mentés");
-          //  this.dispose();
-            
-        }catch(IOException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    }
-
+    /**
+     * public void populateArrayList() { try { FileInputStream file = new
+     * FileInputStream("src\\segedlet\\TermekKodparos.dat"); ObjectInputStream
+     * inputFile = new ObjectInputStream(file);
+     *
+     * boolean endOfFile = false; while (!endOfFile) { try {
+     * termekek.add((TermekKodParos) inputFile.readObject()); } catch
+     * (EOFException e) { endOfFile = true; } catch (Exception f) {
+     * JOptionPane.showMessageDialog(null, f.getMessage()); } }
+     * inputFile.close();
+     *
+     * } catch (IOException ex) { JOptionPane.showMessageDialog(null,
+     * ex.getMessage()); } }
+     *
+     * public void saveTermekekToFile(){ try{ FileOutputStream file=new
+     * FileOutputStream("src\\segedlet\\TermekKodparos.dat"); ObjectOutputStream
+     * outputFile=new ObjectOutputStream(file); for (int i = 0; i
+     * <termekek.size(); i++) { outputFile.writeObject(termekek.get(i)); }
+     * outputFile.close(); // JOptionPane.showMessageDialog(null, "Sikeres
+     * mentés"); // this.dispose();
+     *
+     * }catch(IOException e){ JOptionPane.showMessageDialog(null,
+     * e.getMessage()); } }
+     */
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -160,24 +147,39 @@ public class TermekHOzzaadasa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mentesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mentesButtonActionPerformed
-        if(termekkodField.getText().isEmpty()||termeknevField.getText().isEmpty()){
+        if (termekkodField.getText().isEmpty() || termeknevField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "MInden mezőt ki kell tölteni");
-        }else{
-            String termeknev=termeknevField.getText().trim();
-            String termekkod=termekkodField.getText().trim();
-            
-            TermekKodParos termekKodParos=new TermekKodParos(termeknev, termekkod);
-            termekek.add(termekKodParos);
-            saveTermekekToFile();
+        } else {
+            String termeknev = termeknevField.getText().trim();
+            String termekkod = termekkodField.getText().trim();
+
+            adatok.ujtermekletrehozo(termeknev, termekkod);
+            adatok.termekHozzaadasAListahoz();
+            adatok.listaElmento();
+
+//            
+//            TermekKodParos termekKodParos=new TermekKodParos(termeknev, termekkod);
+//            termekek.add(termekKodParos);
+//            saveTermekekToFile();
         }
         this.dispose();
     }//GEN-LAST:event_mentesButtonActionPerformed
 
     private void termekkodFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_termekkodFieldActionPerformed
-     String termeknev=termeknevField.getText();
-     String termekkod=termekkodField.getText();
-        TermekKodParos uj=new TermekKodParos(termeknev, termekkod);
-        termekek.add(uj);
+       if (termekkodField.getText().isEmpty() || termeknevField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "MInden mezőt ki kell tölteni");
+        } else {
+            String termeknev = termeknevField.getText().trim();
+            String termekkod = termekkodField.getText().trim();
+
+            adatok.ujtermekletrehozo(termeknev, termekkod);
+            adatok.termekHozzaadasAListahoz();
+       }
+        
+//        String termeknev = termeknevField.getText();
+//        String termekkod = termekkodField.getText();
+//        TermekKodParos uj = new TermekKodParos(termeknev, termekkod);
+//        termekek.add(uj);
         termekkodField.setText("");
         termeknevField.setText("");
         termeknevField.requestFocus();
