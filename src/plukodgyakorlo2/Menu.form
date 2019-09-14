@@ -6,12 +6,18 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="tesztMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Teszt"/>
+            <Property name="text" type="java.lang.String" value="Tesztvari&#xe1;ci&#xf3;k |"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="36" style="0"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="tesztbeallitasMenuPont">
               <Properties>
-                <Property name="text" type="java.lang.String" value="vizsga inditasa"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="24" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Tizes-vizsga"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tesztbeallitasMenuPontActionPerformed"/>
@@ -19,7 +25,10 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="tesztInditasmenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="teszt Ind&#xed;t&#xe1;sa"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="24" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Gyakorl&#xe1;s"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tesztInditasmenuActionPerformed"/>
@@ -27,6 +36,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Kikerdezo">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="24" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Kik&#xe9;rdez&#x151;"/>
               </Properties>
               <Events>
@@ -37,11 +49,17 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
+            <Property name="text" type="java.lang.String" value="|Szerkeszt&#xe9;si lehet&#x151;s&#xe9;gek"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="36" style="0"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="termekHozzaadasmenu">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="24" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Term&#xe9;k hozz&#xe1;ad&#xe1;sa"/>
               </Properties>
               <Events>
@@ -50,6 +68,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="termekszerkesztesemenu">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="24" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Term&#xe9;k szerkeszt&#xe9;se"/>
               </Properties>
               <Events>
@@ -58,6 +79,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="24" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Term&#xe9;k t&#xf6;rl&#xe9;se"/>
               </Properties>
               <Events>
@@ -71,6 +95,12 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+      <Font name="Alef" size="36" style="0"/>
+    </Property>
+    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[400, 250]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -92,12 +122,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="892" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="279" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="260" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>

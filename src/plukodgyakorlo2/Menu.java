@@ -38,10 +38,14 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFont(new java.awt.Font("Alef", 0, 36)); // NOI18N
+        setSize(new java.awt.Dimension(400, 250));
 
-        tesztMenu.setText("Teszt");
+        tesztMenu.setText("Tesztvariációk |");
+        tesztMenu.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
 
-        tesztbeallitasMenuPont.setText("vizsga inditasa");
+        tesztbeallitasMenuPont.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        tesztbeallitasMenuPont.setText("Tizes-vizsga");
         tesztbeallitasMenuPont.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tesztbeallitasMenuPontActionPerformed(evt);
@@ -49,7 +53,8 @@ public class Menu extends javax.swing.JFrame {
         });
         tesztMenu.add(tesztbeallitasMenuPont);
 
-        tesztInditasmenu.setText("teszt Indítása");
+        tesztInditasmenu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        tesztInditasmenu.setText("Gyakorlás");
         tesztInditasmenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tesztInditasmenuActionPerformed(evt);
@@ -57,6 +62,7 @@ public class Menu extends javax.swing.JFrame {
         });
         tesztMenu.add(tesztInditasmenu);
 
+        Kikerdezo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Kikerdezo.setText("Kikérdező");
         Kikerdezo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,8 +73,10 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(tesztMenu);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("|Szerkesztési lehetőségek");
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
 
+        termekHozzaadasmenu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         termekHozzaadasmenu.setText("Termék hozzáadása");
         termekHozzaadasmenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +85,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu2.add(termekHozzaadasmenu);
 
+        termekszerkesztesemenu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         termekszerkesztesemenu.setText("Termék szerkesztése");
         termekszerkesztesemenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +94,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu2.add(termekszerkesztesemenu);
 
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jMenuItem1.setText("Termék törlése");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,11 +111,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 892, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 260, Short.MAX_VALUE)
         );
 
         pack();

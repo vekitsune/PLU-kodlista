@@ -136,12 +136,16 @@ public class Vizsga extends javax.swing.JFrame {
         timeField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setFont(new java.awt.Font("Alef", 0, 36)); // NOI18N
+        setSize(new java.awt.Dimension(450, 350));
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("Egy vizsgasor mindössze tíz kérdésből áll. \nA vizsga sikeres amennyiben legalább 7 helyes választ születik.\n");
+        jTextArea1.setText("Egy vizsgasor mindössze tíz kérdésből áll. \nA vizsga sikeres amennyiben legalább 7 válasz helyes.\n");
         jScrollPane1.setViewportView(jTextArea1);
 
+        startButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         startButton.setText("Start");
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,30 +153,39 @@ public class Vizsga extends javax.swing.JFrame {
             }
         });
 
+        termeknevField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         termeknevField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 termeknevFieldActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("PLU kod:");
 
+        tippField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         tippField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tippFieldActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Sikrtelen");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Sikertelen");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("70%");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("80%");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("90%");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("100%");
 
+        sikertelenField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sikertelenField.setText("jTextField1");
         sikertelenField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,21 +193,36 @@ public class Vizsga extends javax.swing.JFrame {
             }
         });
 
+        sz70Field.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sz70Field.setText("jTextField2");
 
+        sz80Field.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sz80Field.setText("jTextField3");
 
+        sz90Field.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sz90Field.setText("jTextField4");
 
+        sz100Field.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sz100Field.setText("jTextField5");
 
-        ujtesztButton.setText("Uj teszt");
+        ujtesztButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        ujtesztButton.setText("Új teszt");
 
+        tesztadatoktorleseButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         tesztadatoktorleseButton.setText("tesztadatok törlése");
 
+        visszaButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         visszaButton.setText("Vissza");
+        visszaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visszaButtonActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setText("kerdessorszám:");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel7.setText("kérdés sorszáma:");
+
+        kerdessorszamField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel8.setText("ido:");
 
@@ -233,7 +261,7 @@ public class Vizsga extends javax.swing.JFrame {
                                 .addComponent(sikertelenField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ujtesztButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 266, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tesztadatoktorleseButton)
                             .addComponent(visszaButton))
@@ -261,8 +289,8 @@ public class Vizsga extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startButton)
                     .addComponent(jLabel7)
@@ -299,7 +327,7 @@ public class Vizsga extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(sz100Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(22, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(visszaButton)
@@ -372,6 +400,10 @@ kerdessorszamField.setText(""+kerdesSorszama);
     private void sikertelenFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sikertelenFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sikertelenFieldActionPerformed
+
+    private void visszaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visszaButtonActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_visszaButtonActionPerformed
 
     /**
      * @param args the command line arguments
