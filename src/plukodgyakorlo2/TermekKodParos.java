@@ -14,6 +14,8 @@ import java.io.*;
 public class TermekKodParos implements Serializable{
     private String termeknev;
     private String termekkod;
+    String kategoria;
+    int elofordulasAListaban;
 
     public TermekKodParos(String termeknev, String termekkod) {
         this.termeknev = termeknev;

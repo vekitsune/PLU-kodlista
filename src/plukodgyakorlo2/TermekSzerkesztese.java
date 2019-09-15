@@ -16,30 +16,34 @@ import java.text.*;
  */
 public class TermekSzerkesztese extends javax.swing.JFrame {
 
-    ArrayList<TermekKodParos> termekek = new ArrayList<TermekKodParos>();
-    ;
-    int kiválasztottIndex = 0;
-    TermekKodParos[] termekektomb;
-    String[] termeknevek;
-    String[] termekkodok;
-    TermekKodParos javitottTermek;
+    Adatkezelo adatok = new Adatkezelo();
+//    ArrayList<TermekKodParos> termekek = new ArrayList<TermekKodParos>();
+//   
+//    int kiválasztottIndex = 0;
+//    TermekKodParos[] termekektomb;
+//    String[] termeknevek;
+//    String[] termekkodok;
+//    TermekKodParos javitottTermek;
 
     /**
      * Creates new form TermekSzerkesztese
      */
     public TermekSzerkesztese() {
         initComponents();
-
-        populateArrayList();
-        System.out.println("termékek arrayList mérete:" + termekek.size());
-
-        termeknevek = new String[termekek.size()];
-        termeknevekTombFeltolto();
-        eredetiTermeknevekComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(termeknevek));
-
-        termekkodok = new String[termekek.size()];
-        termekKodokFeltolto();
-        eredetTermekkodokComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(termekkodok));
+        adatok.listafeltolto();
+//
+//        populateArrayList();
+//        System.out.println("termékek arrayList mérete:" + termekek.size());
+//
+//        termeknevek = new String[termekek.size()];
+//        termeknevekTombFeltolto();
+        adatok.termeknevTombFeltolto();
+        eredetiTermeknevekComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(adatok.termeknevTomb));
+//
+//        termekkodok = new String[termekek.size()];
+//        termekKodokFeltolto();
+adatok.termekkodFeltolto();
+        eredetTermekkodokComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(adatok.termekkodTomb));
 
     }
 
