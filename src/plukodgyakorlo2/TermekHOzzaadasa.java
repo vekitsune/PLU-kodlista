@@ -51,6 +51,11 @@ public class TermekHOzzaadasa extends javax.swing.JFrame {
         jLabel1.setText("Termék neve: ");
 
         termeknevField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        termeknevField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                termeknevFieldActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Termék kód:");
@@ -130,13 +135,14 @@ public class TermekHOzzaadasa extends javax.swing.JFrame {
 
     private void mentesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mentesButtonActionPerformed
         if (termekkodField.getText().isEmpty() || termeknevField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "MInden mezőt ki kell tölteni");
+            JOptionPane.showMessageDialog(null, "Minden mezőt ki kell tölteni");
         } else {
             String termeknev = termeknevField.getText().trim();
             String termekkod = termekkodField.getText().trim();
 
             adatok.ujtermekletrehozo(termeknev, termekkod);
-            adatok.termekHozzaadasAListahoz();
+            //adatok.termeklista.add( adatok.egytermek);
+            adatok.getTermeklista().add(adatok.getEgytermek());
             adatok.listaElmento();
 
         }
@@ -145,13 +151,13 @@ public class TermekHOzzaadasa extends javax.swing.JFrame {
 
     private void termekkodFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_termekkodFieldActionPerformed
         if (termekkodField.getText().isEmpty() || termeknevField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "MInden mezőt ki kell tölteni");
+            JOptionPane.showMessageDialog(null, "Minden mezőt ki kell tölteni");
         } else {
             String termeknev = termeknevField.getText().trim();
             String termekkod = termekkodField.getText().trim();
 
             adatok.ujtermekletrehozo(termeknev, termekkod);
-            adatok.termekHozzaadasAListahoz();
+            adatok.getTermeklista().add(adatok.getEgytermek());
         }
 
         termekkodField.setText("");
@@ -162,6 +168,10 @@ public class TermekHOzzaadasa extends javax.swing.JFrame {
     private void megseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_megseButtonActionPerformed
         this.dispose();
     }//GEN-LAST:event_megseButtonActionPerformed
+
+    private void termeknevFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_termeknevFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_termeknevFieldActionPerformed
 
     /**
      * @param args the command line arguments

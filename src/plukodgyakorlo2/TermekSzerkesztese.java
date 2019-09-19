@@ -17,13 +17,7 @@ import java.text.*;
 public class TermekSzerkesztese extends javax.swing.JFrame {
 
     Adatkezelo adatok = new Adatkezelo();
-//    ArrayList<TermekKodParos> termekek = new ArrayList<TermekKodParos>();
-//   
-//    int kiválasztottIndex = 0;
-//    TermekKodParos[] termekektomb;
-//    String[] termeknevek;
-//    String[] termekkodok;
-//    TermekKodParos javitottTermek;
+// 
 
     /**
      * Creates new form TermekSzerkesztese
@@ -31,97 +25,12 @@ public class TermekSzerkesztese extends javax.swing.JFrame {
     public TermekSzerkesztese() {
         initComponents();
         adatok.listafeltolto();
-//
-//        populateArrayList();
-//        System.out.println("termékek arrayList mérete:" + termekek.size());
-//
-//        termeknevek = new String[termekek.size()];
-//        termeknevekTombFeltolto();
+
         adatok.termeknevTombFeltolto();
-        eredetiTermeknevekComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(adatok.termeknevTomb));
-//
-//        termekkodok = new String[termekek.size()];
-//        termekKodokFeltolto();
-adatok.termekkodFeltolto();
-        eredetTermekkodokComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(adatok.termekkodTomb));
+        eredetiTermeknevekComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(adatok.getTermeknevTomb()));
 
-    }
-
-    public void termekadatcsere() {
-        termekek.remove(termekek.get(kiválasztottIndex));
-        termekek.add(javitottTermek);
-        saveTermekeToFile();
-        termekek.removeAll(termekek);
-        populateArrayList();
-        termeknevek = new String[termekek.size()];
-        termeknevekTombFeltolto();
-        eredetiTermeknevekComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(termeknevek));
-
-        termekkodok = new String[termekek.size()];
-        termekKodokFeltolto();
-        eredetTermekkodokComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(termekkodok));
-    }
-
-    public void termekKodokFeltolto() {
-        for (int i = 0; i < termekek.size(); i++) {
-            termekkodok[i] = termekek.get(i).getTermekkod();
-        }
-    }
-
-    public void termeknevekTombFeltolto() {
-        for (int i = 0; i < termekek.size(); i++) {
-            termeknevek[i] = termekek.get(i).getTermeknev();
-
-        }
-    }
-
-    public void populateArrayList() {
-        try {
-            FileInputStream file = new FileInputStream("src\\segedlet\\TermekKodparos.dat");
-            ObjectInputStream inputObject = new ObjectInputStream(file);
-
-            boolean endOfFile = false;
-            while (!endOfFile) {
-                try {
-                    termekek.add((TermekKodParos) inputObject.readObject());
-                } catch (EOFException e) {
-                    endOfFile = true;
-                } catch (Exception f) {
-                    JOptionPane.showMessageDialog(null, f.getMessage());
-                }
-            }
-            inputObject.close();
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
-
-    }
-
-    public void saveTermekeToFile() {
-        try {
-            FileOutputStream file = new FileOutputStream("src\\segedlet\\TermekKodparos.dat");
-            ObjectOutputStream outputObject = new ObjectOutputStream(file);
-            for (int i = 0; i < termekek.size(); i++) {
-                outputObject.writeObject(termekek.get(i));
-            }
-            outputObject.close();
-            JOptionPane.showMessageDialog(null, "A változtatásokat sikeresen elmentette.");
-            // this.dispose();
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-
-        }
-    }
-
-    public void deleteTermekFromArray(TermekKodParos kivalasztott) {
-        termekek.remove(kivalasztott);
-        saveTermekeToFile();
-    }
-
-    public void editTermek(TermekKodParos eredeti, TermekKodParos szerkesztett) {
-        termekek.remove(eredeti);
-        termekek.add(szerkesztett);
-        saveTermekeToFile();
+        adatok.termekkodFeltolto();
+        eredetTermekkodokComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(adatok.getTermekkodTomb()));
     }
 
     /**
@@ -271,10 +180,10 @@ adatok.termekkodFeltolto();
     }// </editor-fold>//GEN-END:initComponents
 
     private void eredetiTermeknevekComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eredetiTermeknevekComboBoxActionPerformed
+        adatok.setKivalasztottTermekIndex(eredetiTermeknevekComboBox.getSelectedIndex());
 
-        kiválasztottIndex = eredetiTermeknevekComboBox.getSelectedIndex();
-        szerkesztettTermeknevField.setText(termekek.get(kiválasztottIndex).getTermeknev());
-        szerkesztettTermekkodField.setText(termekek.get(kiválasztottIndex).getTermekkod());
+        szerkesztettTermeknevField.setText(adatok.getTermeklista().get(adatok.getKivalasztottTermekIndex()).getTermeknev());
+        szerkesztettTermekkodField.setText(adatok.getTermeklista().get(adatok.getKivalasztottTermekIndex()).getTermekkod());
 
     }//GEN-LAST:event_eredetiTermeknevekComboBoxActionPerformed
 
@@ -284,17 +193,22 @@ adatok.termekkodFeltolto();
 
     private void eredetTermekkodokComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eredetTermekkodokComboBoxActionPerformed
 
-        kiválasztottIndex = eredetTermekkodokComboBox.getSelectedIndex();
-        szerkesztettTermeknevField.setText(termekek.get(kiválasztottIndex).getTermeknev());
-        szerkesztettTermekkodField.setText(termekek.get(kiválasztottIndex).getTermekkod());
+        adatok.setKivalasztottTermekIndex(eredetTermekkodokComboBox.getSelectedIndex());
+
+        szerkesztettTermeknevField.setText(adatok.getTermeklista().get(adatok.getKivalasztottTermekIndex()).getTermeknev());
+        szerkesztettTermekkodField.setText(adatok.getTermeklista().get(adatok.getKivalasztottTermekIndex()).getTermekkod());
     }//GEN-LAST:event_eredetTermekkodokComboBoxActionPerformed
 
     private void mentesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mentesButtonActionPerformed
         String termeknev = szerkesztettTermeknevField.getText();
         String termekkod = szerkesztettTermekkodField.getText();
-        javitottTermek = new TermekKodParos(termeknev, termekkod);
-
-        termekadatcsere();
+        if(termeknev==null||termekkod==null){
+            JOptionPane.showMessageDialog(null, "Hiányos adatbevitel, változtatás nem történik.");
+        }else{
+            
+        }
+        adatok.termekAdatJavitas(adatok.getTermeklista().get(adatok.getKivalasztottTermekIndex()),new TermekKodParos(termeknev, termekkod));
+       
         mentesButton.setEnabled(false);
     }//GEN-LAST:event_mentesButtonActionPerformed
 
